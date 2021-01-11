@@ -58,6 +58,24 @@ function displayNumber(evt){
     }
 }
 
+function reset(evt){
+    evt.preventDefault()
+    allSquares=document.querySelectorAll(".sq")
+    console.log("allsq " + allSquares.length + " squaresMatched " + squaresMatched.length)
+    // Clear Gameboard
+    for (i=0;i<allSquares.length;i++){
+        allSquares[i].innerText=""
+    }
+
+    //Clear array that keeps track of matches squares
+    for (i=0;i<squaresMatched.length;i++){
+        squaresMatched[i] = ""
+    }
+
+    firstSquarePicked[0]=99
+    firstSquarePicked[1]=99
+      
+}
 
 let sq=document.querySelector(`#${CSS.escape("0")}`);
 sq.addEventListener("click", displayNumber)
@@ -109,3 +127,5 @@ sq14.addEventListener("click",displayNumber)
 let sq15 = document.querySelector(`#${CSS.escape("15")}`);
 sq15.addEventListener("click",displayNumber)
 
+button=document.querySelector("button")
+button.addEventListener("click",reset)
