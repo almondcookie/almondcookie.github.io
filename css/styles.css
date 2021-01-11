@@ -24,6 +24,10 @@
    padding: 20px;
 }
 
+h1{
+    text-align: center;
+}
+
  /* #1 {
     grid-area: sq0;
     border: 1px black solid 

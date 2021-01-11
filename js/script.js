@@ -2,6 +2,7 @@ console.log("In javascript")
 arrayNumbers=[0,0,1,1,2,2,3,3,4,4,5,5,6,6,7,7]
 firstSquarePicked=[99,99]
 squaresMatched=[]
+howManyMatched=0
 
 
 // Got sleep function from https://www.sitepoint.com/delay-sleep-pause-wait/
@@ -13,53 +14,12 @@ function sleep(milliseconds) {
     } while (currentDate - date < milliseconds);
   }
 
-
-function displayNumber(evt){
-    evt.preventDefault()
-    //console.log(evt)
-    //console.log(evt.target.id)
-    const currentIndex = evt.target.id
-    const currentNumber = arrayNumbers[currentIndex]
-    const previousIndex = firstSquarePicked[0]
-    const previousNumber = firstSquarePicked[1]
-    evt.target.innerText= currentNumber
-    // Check for a match.
-    // Check if a previous cell has been checked
-    // If not, put location and value of the cell
-    // Then next time around, can compare firstSquarePicked to the current value
-
-    // Check if the square has already found a match
-    if (!squaresMatched.includes(currentIndex)){
-        // starting with comparisons again
-        if (firstSquarePicked[0] == 99){
-            firstSquarePicked[0] = evt.target.id  //Store which square
-            firstSquarePicked[1] = currentNumber //Store the number
-        // CHeck if no match   
-        } else if (previousNumber !== currentNumber){
-                // const previousNumber = document.querySelector('#' + CSS.escape(previousIndex)).innerText
-                // console.log("previousNumber: " + previousNumber)            
-                console.log(`no match. ${currentNumber} Not Equal ${previousNumber}. Previous location: ${previousIndex}`)
-                //sleep(2000)
-                // Clear previous text from gameboard
-                document.querySelector('#' + CSS.escape(previousIndex)).innerText = ""
-                // Clear current text from gameboard
-                evt.target.innerText = ""
-                firstSquarePicked[0]=99
-                firstSquarePicked[1]=99
-            // check for match
-        } else if(previousNumber == currentNumber){
-            console.log("Match current and previous " + currentNumber + " " + previousNumber)
-            squaresMatched[currentIndex]=currentIndex
-            squaresMatched[previousIndex]=previousIndex
-            firstSquarePicked[0]=99
-            firstSquarePicked[1]=99
-
-        }
+  function reset(evt){
+    // If this function is called w/o an event handler, 
+    // skip anything related to event handler
+    if (evt){
+        evt.preventDefault()
     }
-}
-
-function reset(evt){
-    evt.preventDefault()
     allSquares=document.querySelectorAll(".sq")
     console.log("allsq " + allSquares.length + " squaresMatched " + squaresMatched.length)
     // Clear Gameboard
@@ -72,10 +32,64 @@ function reset(evt){
         squaresMatched[i] = ""
     }
 
+    howManyMatched=0
+
     firstSquarePicked[0]=99
     firstSquarePicked[1]=99
       
 }
+
+function displayNumber(evt){
+    evt.preventDefault()
+    const currentIndex = evt.target.id
+    const currentNumber = arrayNumbers[currentIndex]
+    const previousIndex = firstSquarePicked[0]
+    const previousNumber = firstSquarePicked[1]
+    evt.target.innerText= currentNumber
+
+    // Check if the square has already found a match
+    if (!squaresMatched.includes(currentIndex)){
+        // starting with comparisons again
+        if (firstSquarePicked[0] == 99){
+            firstSquarePicked[0] = evt.target.id  //Store which square
+            firstSquarePicked[1] = currentNumber //Store the number
+        // CHeck if no match   
+        } else if (previousNumber !== currentNumber){
+                // const previousNumber = document.querySelector('#' + CSS.escape(previousIndex)).innerText
+                //console.log(`no match. ${currentNumber} Not Equal ${previousNumber}. Previous location: ${previousIndex}`)
+                //sleep(2000)
+                // Clear previous text from gameboard
+                document.querySelector('#' + CSS.escape(previousIndex)).innerText = ""
+                // Clear current text from gameboard
+                evt.target.innerText = ""
+                firstSquarePicked[0]=99
+                firstSquarePicked[1]=99
+                // if (howManyMatched == (arrayNumbers.length)/2){
+                //     console.log("You won")
+                //     //reset()
+                // }        
+            // check for match
+        } else if(previousNumber == currentNumber){
+            //console.log("Match current and previous " + currentNumber + " " + previousNumber)
+            squaresMatched[currentIndex]=currentIndex
+            squaresMatched[previousIndex]=previousIndex
+            firstSquarePicked[0]=99
+            firstSquarePicked[1]=99
+            howManyMatched+=1
+            if (howManyMatched == (arrayNumbers.length)/2){
+                    console.log("You won")
+                    reset()
+            }                    
+
+        }
+        // Check if all squares have a match and end of game
+    // } else if (howManyMatched == (arrayNumbers.length)/2){
+    //     console.log("You won")
+    }        
+
+}
+
+
 
 let sq=document.querySelector(`#${CSS.escape("0")}`);
 sq.addEventListener("click", displayNumber)
