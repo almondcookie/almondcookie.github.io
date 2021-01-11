@@ -12,7 +12,6 @@ function displayNumber(evt){
 }
 
 
-
 let sq=document.querySelector(`#${CSS.escape("0")}`);
 sq.addEventListener("click", displayNumber)
 // .addEventListener("click", displayNumber())
