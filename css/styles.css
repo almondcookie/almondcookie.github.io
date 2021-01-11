@@ -1,0 +1,107 @@
+
+.board {
+    display: grid;
+    /* background: blue; */
+    grid-gap: 5px;
+    grid-template-columns: auto auto;
+    /* padding: 10px; */
+    /* grid-template-rows: repeat(16, 120px); */
+    /* grid-template-areas:
+    "sq0 sq1"
+    "sq2 sq3"
+    "sq4 sq5"
+    "sq6 sq7"
+    "sq8 sq9"
+    "sq10 sq11"
+    "sq12 sq13"
+    "sq14 sq15"     */
+}
+
+.sq {
+   /* grid-area: sq0; */
+   background-color: orange;
+   border: 1px black solid;
+   padding: 20px;
+}
+
+ /* #1 {
+    grid-area: sq0;
+    border: 1px black solid 
+ }
+
+ #2 {
+    grid-area: sq0;
+    border: 1px black solid 
+ }
+
+ #3 {
+    grid-area: sq0;
+    border: 1px black solid 
+ }
+
+ #4 {
+    grid-area: sq0;
+    border: 1px black solid 
+ }
+
+ #5 {
+    grid-area: sq0;
+    border: 1px black solid 
+ }
+
+ #6 {
+    grid-area: sq0;
+    border: 1px black solid 
+ }
+
+ #7 {
+    grid-area: sq0;
+    border: 1px black solid 
+ }
+
+ #8 {
+    grid-area: sq0;
+    border: 1px black solid 
+ }
+
+ #9 {
+    grid-area: sq0;
+    border: 1px black solid 
+ }
+
+ #10 {
+    grid-area: sq0;
+    border: 1px black solid 
+ }
+
+ #11 {
+    grid-area: sq0;
+    border: 1px black solid 
+ }
+
+ #12 {
+    grid-area: sq0;
+    border: 1px black solid 
+ }
+
+ #13 {
+    grid-area: sq0;
+    border: 1px black solid 
+ }
+
+ #14 {
+    grid-area: sq0;
+    border: 1px black solid 
+ }
+
+ #15 {
+    grid-area: sq0;
+    border: 1px black solid 
+ } */
+
+
+ 
+ 
+ 
+
+
