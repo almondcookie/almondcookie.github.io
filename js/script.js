@@ -15,14 +15,15 @@ function sleep(milliseconds) {
   }
 
   function reset(evt){
+
     // If this function is called w/o an event handler, 
     // skip anything related to event handler
     if (evt){
         evt.preventDefault()
     }
+
+        // Clear Gameboard
     allSquares=document.querySelectorAll(".sq")
-    console.log("allsq " + allSquares.length + " squaresMatched " + squaresMatched.length)
-    // Clear Gameboard
     for (i=0;i<allSquares.length;i++){
         allSquares[i].innerText=""
     }
@@ -32,11 +33,21 @@ function sleep(milliseconds) {
         squaresMatched[i] = ""
     }
 
+    //Clear "You won" if displayed
+    document.querySelector("h2").innerText = ""
+
     howManyMatched=0
 
     firstSquarePicked[0]=99
     firstSquarePicked[1]=99
       
+}
+
+function checkIfWon(){
+    if (howManyMatched == (arrayNumbers.length)/2){
+        //reset()
+        document.querySelector("h2").innerText= "YOU WON"
+    }     
 }
 
 function displayNumber(evt){
@@ -64,10 +75,6 @@ function displayNumber(evt){
                 evt.target.innerText = ""
                 firstSquarePicked[0]=99
                 firstSquarePicked[1]=99
-                // if (howManyMatched == (arrayNumbers.length)/2){
-                //     console.log("You won")
-                //     //reset()
-                // }        
             // check for match
         } else if(previousNumber == currentNumber){
             //console.log("Match current and previous " + currentNumber + " " + previousNumber)
@@ -76,11 +83,7 @@ function displayNumber(evt){
             firstSquarePicked[0]=99
             firstSquarePicked[1]=99
             howManyMatched+=1
-            if (howManyMatched == (arrayNumbers.length)/2){
-                    console.log("You won")
-                    reset()
-            }                    
-
+            checkIfWon()      
         }
         // Check if all squares have a match and end of game
     // } else if (howManyMatched == (arrayNumbers.length)/2){
