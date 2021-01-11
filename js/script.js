@@ -146,3 +146,4 @@ sq15.addEventListener("click",displayNumber)
 
 button=document.querySelector("button")
 button.addEventListener("click",reset)
+//console.log(button)
