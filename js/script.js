@@ -1,5 +1,5 @@
 console.log("In javascript")
-arrayNumbers=[0,0,1,1,2,2,3,3,4,4,5,5,6,6,7,7]
+arrayNumbers=["images/bamboo.jpg","images/bamboo.jpg","images/candles.jpg","images/candles.jpg","images/gate.jpg","images/gate.jpg","images/group.jpg","images/group.jpg","images/leaves.jpg","images/leaves.jpg","images/plant.jpg","images/plant.jpg","images/shoes.jpg","images/shoes.jpg","images/think.jpg","images/think.jpg"]
 firstSquarePicked=[99,99]
 squaresMatched=[]
 howManyMatched=0
@@ -15,32 +15,26 @@ function sleep(milliseconds) {
   }
 
   function reset(evt){
-
     // If this function is called w/o an event handler, 
     // skip anything related to event handler
     if (evt){
         evt.preventDefault()
     }
-
-        // Clear Gameboard
+    // Clear Gameboard
     allSquares=document.querySelectorAll(".sq")
     for (i=0;i<allSquares.length;i++){
-        allSquares[i].innerText=""
+        // allSquares[i].innerText=""
+        allSquares[i].outerHTML = '<img src="game/images/colorful.jpg" alt="Memory" style="width:120px;height:120px;">'
     }
-
     //Clear array that keeps track of matches squares
     for (i=0;i<squaresMatched.length;i++){
         squaresMatched[i] = ""
     }
-
     //Clear "You won" if displayed
     document.querySelector("h2").innerText = ""
-
     howManyMatched=0
-
     firstSquarePicked[0]=99
-    firstSquarePicked[1]=99
-      
+    firstSquarePicked[1]=99      
 }
 
 function checkIfWon(){
@@ -52,27 +46,56 @@ function checkIfWon(){
 
 function displayNumber(evt){
     evt.preventDefault()
-    const currentIndex = evt.target.id
+    // const currentIndex = evt.target.id
+    const currentIndex = evt.path[1].id
     const currentNumber = arrayNumbers[currentIndex]
     const previousIndex = firstSquarePicked[0]
     const previousNumber = firstSquarePicked[1]
-    evt.target.innerText= currentNumber
+    // console.log(evt)
+    // console.log(evt.path.1)
+    // console.log(evt.Array[1])
+    //console.log(evt.path.Array[1])
+    // console.log(document.getElementById(evt.path[1]))
+
+    //wks
+    // console.log(evt.path[1].id)
+    // let theDiv = evt.path[1]
+    // console.log(theDiv)
+    // let theIndex = theDiv.id
+    // console.log(theIndex)
+
+    // let theStr = theDiv.substring(20,1)
+    // console.log(theStr)
+    // let theIndex = document.querySelector(theDiv)
+    //evt.target.currentSrc = "file:///Users/Betsy/coding/work/deere-6/project1/game/images/bamboo.jpg"
+    //evt.target.outerHTML = '<img src="game/images/think.jpg" alt="Memory" style="width:120px;height:120px;">'
+    //console.log(arrayNumbers[0])
+    evt.target.outerHTML = '<img src='+arrayNumbers[currentIndex]+' alt="Memory" style="width:120px;height:120px;">'
+    // evt.target.innerText= currentNumber
+    // document.querySelector(evt.target.img).style.display='none'
 
     // Check if the square has already found a match
     if (!squaresMatched.includes(currentIndex)){
         // starting with comparisons again
         if (firstSquarePicked[0] == 99){
-            firstSquarePicked[0] = evt.target.id  //Store which square
-            firstSquarePicked[1] = currentNumber //Store the number
+            // firstSquarePicked[0] = evt.target.id  //Store which square
+            firstSquarePicked[0] = currentIndex
+            // firstSquarePicked[1] = currentNumber //Store the number
+            firstSquarePicked[1]= currentNumber
         // CHeck if no match   
         } else if (previousNumber !== currentNumber){
-                // const previousNumber = document.querySelector('#' + CSS.escape(previousIndex)).innerText
-                //console.log(`no match. ${currentNumber} Not Equal ${previousNumber}. Previous location: ${previousIndex}`)
-                //sleep(2000)
                 // Clear previous text from gameboard
-                document.querySelector('#' + CSS.escape(previousIndex)).innerText = ""
+                // document.querySelector('#' + CSS.escape(previousIndex)).innerHTML = ""
+                document.querySelector('#' + CSS.escape(previousIndex)).outerHTML = '<img src="game/images/colorful.jpg" alt="Memory" style="width:120px;height:120px;">'
+
                 // Clear current text from gameboard
-                evt.target.innerText = ""
+                // evt.target.innerText = ""
+                // console.log(evt.target)
+                // evt.target.outerHTML = '<img src="game/images/colorful.jpg" alt="Memory" style="width:120px;height:120px;">'
+                evt.target = '<img src="game/images/colorful.jpg" alt="Memory" style="width:120px;height:120px;">'
+
+                // allSquares[i].innerText=""
+
                 firstSquarePicked[0]=99
                 firstSquarePicked[1]=99
             // check for match
@@ -85,19 +108,15 @@ function displayNumber(evt){
             howManyMatched+=1
             checkIfWon()      
         }
-        // Check if all squares have a match and end of game
-    // } else if (howManyMatched == (arrayNumbers.length)/2){
-    //     console.log("You won")
-    }        
 
+    }        
 }
 
 
 
-let sq=document.querySelector(`#${CSS.escape("0")}`);
-sq.addEventListener("click", displayNumber)
-// .addEventListener("click", displayNumber())
-//console.log(sq)
+let sq0=document.querySelector(`#${CSS.escape("0")}`);
+// console.log(`sq0: ${sq0}`)
+sq0.addEventListener("click", displayNumber)
 
 let sq1 = document.querySelector(`#${CSS.escape("1")}`);
 sq1.addEventListener("click",displayNumber)
@@ -146,4 +165,3 @@ sq15.addEventListener("click",displayNumber)
 
 button=document.querySelector("button")
 button.addEventListener("click",reset)
-//console.log(button)
