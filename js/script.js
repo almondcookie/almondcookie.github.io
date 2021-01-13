@@ -29,7 +29,7 @@ function checkIfWon(){
     }     
 }
 
-function displayNumber(evt){
+function displayImage(evt){
     evt.preventDefault()
     const currentIndex = evt.path[1].id
     const currentImage = arrayImages[currentIndex]
@@ -72,52 +72,52 @@ function displayNumber(evt){
 
 
 let sq0=document.querySelector(`#${CSS.escape("0")}`);
-sq0.addEventListener("click", displayNumber)
+sq0.addEventListener("click", displayImage)
 
 let sq1 = document.querySelector(`#${CSS.escape("1")}`);
-sq1.addEventListener("click",displayNumber)
+sq1.addEventListener("click",displayImage)
 
 let sq2 = document.querySelector(`#${CSS.escape("2")}`);
-sq2.addEventListener("click",displayNumber)
+sq2.addEventListener("click",displayImage)
 
 let sq3 = document.querySelector(`#${CSS.escape("3")}`);
-sq3.addEventListener("click",displayNumber)
+sq3.addEventListener("click",displayImage)
 
 let sq4 = document.querySelector(`#${CSS.escape("4")}`);
-sq4.addEventListener("click",displayNumber)
+sq4.addEventListener("click",displayImage)
 
 let sq5 = document.querySelector(`#${CSS.escape("5")}`);
-sq5.addEventListener("click",displayNumber)
+sq5.addEventListener("click",displayImage)
 
 let sq6 = document.querySelector(`#${CSS.escape("6")}`);
-sq6.addEventListener("click",displayNumber)
+sq6.addEventListener("click",displayImage)
 
 let sq7 = document.querySelector(`#${CSS.escape("7")}`);
-sq7.addEventListener("click",displayNumber)
+sq7.addEventListener("click",displayImage)
 
 let sq8 = document.querySelector(`#${CSS.escape("8")}`);
-sq8.addEventListener("click",displayNumber)
+sq8.addEventListener("click",displayImage)
 
 let sq9 = document.querySelector(`#${CSS.escape("9")}`);
-sq9.addEventListener("click",displayNumber)
+sq9.addEventListener("click",displayImage)
 
 let sq10 = document.querySelector(`#${CSS.escape("10")}`);
-sq10.addEventListener("click",displayNumber)
+sq10.addEventListener("click",displayImage)
 
 let sq11 = document.querySelector(`#${CSS.escape("11")}`);
-sq11.addEventListener("click",displayNumber)
+sq11.addEventListener("click",displayImage)
 
 let sq12 = document.querySelector(`#${CSS.escape("12")}`);
-sq12.addEventListener("click",displayNumber)
+sq12.addEventListener("click",displayImage)
 
 let sq13 = document.querySelector(`#${CSS.escape("13")}`);
-sq13.addEventListener("click",displayNumber)
+sq13.addEventListener("click",displayImage)
 
 let sq14 = document.querySelector(`#${CSS.escape("14")}`);
-sq14.addEventListener("click",displayNumber)
+sq14.addEventListener("click",displayImage)
 
 let sq15 = document.querySelector(`#${CSS.escape("15")}`);
-sq15.addEventListener("click",displayNumber)
+sq15.addEventListener("click",displayImage)
 
 button=document.querySelector("button")
 button.addEventListener("click",reset)
