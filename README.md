@@ -32,8 +32,8 @@ To improve your memory, try to find all the matching pairs to win
     * Tracking down event list in inspect
     * HTML
     * CSS
-    * Javascript
-    * google search
+    * JavaScript
+    * Google search
 ### Future Enhancements
     * Animate flipping the card
     * Timer
