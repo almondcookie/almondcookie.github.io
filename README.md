@@ -17,9 +17,9 @@ To improve your memory, try to find all the matching pairs to win
     * When the user clicks on the card (as if the card was turned over), an image appears that needs to be matched
 
 ### Links
-![Start of Game] (https://github.com/almondcookie/almondcookie.github.io/blob/main/images/Beginning.png)
-![End of Game] (https://github.com/almondcookie/almondcookie.github.io/blob/main/images/End.png)
-[Link to Memory Game] (https://almondcookie.github.io)
+![Start of Game](https://github.com/almondcookie/almondcookie.github.io/blob/main/images/Beginning.png)
+![End of Game](https://github.com/almondcookie/almondcookie.github.io/blob/main/images/End.png)
+[Link to Memory Game](https://almondcookie.github.io)
 ### Technology Used:
     * VS Code
     * console.log
