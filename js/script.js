@@ -1,18 +1,14 @@
-console.log("In javascript")
 arrayNumbers=["images/tractor.jpg","images/tractor.jpg","images/candles.jpg","images/candles.jpg","images/gate.jpg","images/gate.jpg","images/group.jpg","images/group.jpg","images/leaves.jpg","images/leaves.jpg","images/plant.jpg","images/plant.jpg","images/shoes.jpg","images/shoes.jpg","images/think.jpg","images/think.jpg"]
 firstSquarePicked=[99,99]
 squaresMatched=[]
 howManyMatched=0
 
 function reset(evt){
-    // If this function is called w/o an event handler, 
-    // skip anything related to event handler
 
     evt.preventDefault()
  
     // Clear Gameboard
     allSquares=document.querySelectorAll(".sq")
-    console.log(allSquares)
     for (i=0;i<allSquares.length;i++){
         allSquares[i].children[0].outerHTML = '<img src="images/colorful.jpeg" alt="Memory" style="width:120px;height:120px;">'
     }
@@ -25,7 +21,6 @@ function reset(evt){
     howManyMatched=0
     firstSquarePicked[0]=99
     firstSquarePicked[1]=99
-    console.log("end reset")     
 }
 
 function checkIfWon(){
@@ -36,27 +31,23 @@ function checkIfWon(){
 
 function displayNumber(evt){
     evt.preventDefault()
-    console.log("got to display")
     const currentIndex = evt.path[1].id
     const currentNumber = arrayNumbers[currentIndex]
     const previousIndex = firstSquarePicked[0]
     const previousNumber = firstSquarePicked[1]
     evt.target.outerHTML = '<img src='+arrayNumbers[currentIndex]+' alt="Memory" style="width:120px;height:120px;">'
 
-    console.log(evt)
-
     // Check if the square has already found a match
     if (!squaresMatched.includes(currentIndex)){
         // starting with comparisons again
         if (firstSquarePicked[0] == 99){
-            // firstSquarePicked[0] = evt.target.id  //Store which square
             firstSquarePicked[0] = currentIndex
-            // firstSquarePicked[1] = currentNumber //Store the number
             firstSquarePicked[1]= currentNumber
         // CHeck if no match   
         } else if (previousNumber !== currentNumber){
-                // Clear previous text from gameboard
+                //Give the user some time to view the images before cleared
                 setTimeout(function(){
+                    // Clear previous text from gameboard
                     document.querySelector('#' + CSS.escape(previousIndex)+" img").outerHTML = '<img src="images/colorful.jpeg" alt="Memory" style="width:120px;height:120px;">'
 
                     // Clear current text from gameboard
