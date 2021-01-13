@@ -5,17 +5,12 @@
 
 .board {
     display: grid;
-    /* background: blue; */
     grid-gap: 15px;
-    /* grid-template-columns: auto auto; */
     grid-template-columns: repeat(4, var(--sqSize));
     grid-template-rows: repeat(4, var(--sqSize)) ;
     justify-content: center;
-    
-    /* padding: 10px; */
-    /* grid-template-rows: repeat(16, 120px); */
+ 
     grid-template-areas:
-    /* "h1 h1" */
     "sq0 sq1"
     "sq2 sq3"
     "sq4 sq5"
@@ -24,25 +19,21 @@
     "sq10 sq11"
     "sq12 sq13"
     "sq14 sq15"
-    /* "h2 h2" */
 }
 
 .sq {
-   /* grid-area: sq0; */
-   /* border: 1px black solid; */
    text-align: center;
-
-   /* padding: 20px; */
-
 }
 
 button{
     display: block;
-    margin: auto
+    margin: auto;
 }
 
 h1,h2{
     text-align: center;
+    color: forestgreen;
+    font-family: 'Rock Salt', cursive;
 }
 
 
