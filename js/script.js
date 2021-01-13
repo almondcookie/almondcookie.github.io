@@ -70,7 +70,8 @@ function displayImage(evt){
 }
 
 
-
+// Using querySelector w/ IDs that are numbers require special handling
+//https://stackoverflow.com/questions/20306204/using-queryselector-with-ids-that-are-numbers
 let sq0=document.querySelector(`#${CSS.escape("0")}`);
 sq0.addEventListener("click", displayImage)
 
