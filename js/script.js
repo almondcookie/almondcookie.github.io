@@ -1,4 +1,4 @@
-arrayNumbers=["images/tractor.jpg","images/tractor.jpg","images/candles.jpg","images/candles.jpg","images/gate.jpg","images/gate.jpg","images/group.jpg","images/group.jpg","images/leaves.jpg","images/leaves.jpg","images/plant.jpg","images/plant.jpg","images/shoes.jpg","images/shoes.jpg","images/think.jpg","images/think.jpg"]
+arrayImages=["images/tractor.jpg","images/tractor.jpg","images/candles.jpg","images/candles.jpg","images/gate.jpg","images/gate.jpg","images/group.jpg","images/group.jpg","images/leaves.jpg","images/leaves.jpg","images/plant.jpg","images/plant.jpg","images/shoes.jpg","images/shoes.jpg","images/think.jpg","images/think.jpg"]
 firstSquarePicked=[99,99]
 squaresMatched=[]
 howManyMatched=0
@@ -24,7 +24,7 @@ function reset(evt){
 }
 
 function checkIfWon(){
-    if (howManyMatched == (arrayNumbers.length)/2){
+    if (howManyMatched == (arrayImages.length)/2){
         document.querySelector("h2").innerText= "YOU WON"
     }     
 }
@@ -32,33 +32,32 @@ function checkIfWon(){
 function displayNumber(evt){
     evt.preventDefault()
     const currentIndex = evt.path[1].id
-    const currentNumber = arrayNumbers[currentIndex]
+    const currentImage = arrayImages[currentIndex]
     const previousIndex = firstSquarePicked[0]
-    const previousNumber = firstSquarePicked[1]
-    evt.target.outerHTML = '<img src='+arrayNumbers[currentIndex]+' alt="Memory" style="width:120px;height:120px;">'
+    const previousImage = firstSquarePicked[1]
+    evt.target.outerHTML = '<img src='+arrayImages[currentIndex]+' alt="Memory" style="width:120px;height:120px;">'
 
     // Check if the square has already found a match
     if (!squaresMatched.includes(currentIndex)){
         // starting with comparisons again
         if (firstSquarePicked[0] == 99){
             firstSquarePicked[0] = currentIndex
-            firstSquarePicked[1]= currentNumber
+            firstSquarePicked[1]= currentImage
         // CHeck if no match   
-        } else if (previousNumber !== currentNumber){
+        } else if (previousImage !== currentImage){
                 //Give the user some time to view the images before cleared
                 setTimeout(function(){
-                    // Clear previous text from gameboard
+                    // Clear previous image from gameboard
                     document.querySelector('#' + CSS.escape(previousIndex)+" img").outerHTML = '<img src="images/colorful.jpeg" alt="Memory" style="width:120px;height:120px;">'
 
                     // Clear current text from gameboard
-                    console.log(evt)
                     document.querySelector('#' + CSS.escape(currentIndex)+" img").outerHTML = '<img src="images/colorful.jpeg" alt="Memory" style="width:120px;height:120px;">'
                 },600)
 
                 firstSquarePicked[0]=99
                 firstSquarePicked[1]=99
             // check for match
-        } else if(previousNumber == currentNumber){
+        } else if(previousImage == currentImage){
             squaresMatched[currentIndex]=currentIndex
             squaresMatched[previousIndex]=previousIndex
             firstSquarePicked[0]=99
