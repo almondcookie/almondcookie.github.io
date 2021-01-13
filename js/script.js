@@ -1,5 +1,5 @@
 console.log("In javascript")
-arrayNumbers=["images/bamboo.jpg","images/bamboo.jpg","images/candles.jpg","images/candles.jpg","images/gate.jpg","images/gate.jpg","images/group.jpg","images/group.jpg","images/leaves.jpg","images/leaves.jpg","images/plant.jpg","images/plant.jpg","images/shoes.jpg","images/shoes.jpg","images/think.jpg","images/think.jpg"]
+arrayNumbers=["images/tractor.jpg","images/tractor.jpg","images/candles.jpg","images/candles.jpg","images/gate.jpg","images/gate.jpg","images/group.jpg","images/group.jpg","images/leaves.jpg","images/leaves.jpg","images/plant.jpg","images/plant.jpg","images/shoes.jpg","images/shoes.jpg","images/think.jpg","images/think.jpg"]
 firstSquarePicked=[99,99]
 squaresMatched=[]
 howManyMatched=0
@@ -62,12 +62,7 @@ function displayNumber(evt){
                     // Clear current text from gameboard
                     console.log(evt)
                     document.querySelector('#' + CSS.escape(currentIndex)+" img").outerHTML = '<img src="images/colorful.jpeg" alt="Memory" style="width:120px;height:120px;">'
-                },200)
-
-                // evt.target.src = '<img src="images/colorful.jpeg" alt="Memory" style="width:120px;height:120px;">'
-                // evt.target = '<img src="/Users/Betsy/coding/work/deere-6/project1/game/images/colorful.jpeg" alt="Memory" style="width:120px;height:120px;">'
-
-
+                },600)
 
                 firstSquarePicked[0]=99
                 firstSquarePicked[1]=99
